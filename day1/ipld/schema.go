@@ -1,24 +1,20 @@
-package main
+package schema
 
 import (
 	"bytes"
-	"io"
-
-	"bytes"
+	"context"
+	"fmt"
 	"io"
 
 	"github.com/ipfs/go-cid"
 	"github.com/ipfs/go-datastore"
 	"github.com/ipld/go-ipld-prime"
+	"github.com/ipld/go-ipld-prime/codec/dagjson"
 	cidlink "github.com/ipld/go-ipld-prime/linking/cid"
+	"github.com/ipld/go-ipld-prime/node/bindnode"
 	"github.com/ipld/go-ipld-prime/schema"
 	"github.com/multiformats/go-multicodec"
-
-	"github.com/ipfs/go-datastore"
-	ipld "github.com/ipld/go-ipld-prime"
-
-	_ "github.com/ipld/go-ipld-prime/codec/dagjson"
-	cidlink "github.com/ipld/go-ipld-prime/linking/cid"
+	"golang.org/x/xerrors"
 )
 
 // Linkproto is the ipld.LinkProtocol used for the ingestion protocol.
@@ -32,55 +28,14 @@ var Linkproto = cidlink.LinkPrototype{
 	},
 }
 
-func mkLinkSystem(ds datastore.Batching) ipld.LinkSystem {
-	lsys := cidlink.DefaultLinkSystem()
-	lsys.StorageReadOpener = func(lctx ipld.LinkContext, lnk ipld.Link) (io.Reader, error) {
-		c := lnk.(cidlink.Link).Cid
-		val, err := ds.Get(datastore.NewKey(c.String()))
-		if err != nil {
-			return nil, err
-		}
-		return bytes.NewBuffer(val), nil
-	}
-	lsys.StorageWriteOpener = func(lctx ipld.LinkContext) (io.Writer, ipld.BlockWriteCommitter, error) {
-		buf := bytes.NewBuffer(nil)
-		return buf, func(lnk ipld.Link) error {
-			c := lnk.(cidlink.Link).Cid
-			return ds.Put(datastore.NewKey(c.String()), buf.Bytes())
-		}, nil
-	}
-	return lsys
-}
-
 var (
-	CheckpointSchema schema.Type
-	MsgMetaSchema    schema.Type
-
-	// NoPreviousCheck is a work-around to avoid undefined CIDs,
-	// that results in unexpected errors when marshalling.
-	// This needs a fix in go-ipld-prime::bindnode
-	NoPreviousCheck cid.Cid
-
-	// EmptyCheckpoint is an empty checkpoint that can be Marshalled
-	EmptyCheckpoint *Checkpoint
+	NFTSchema      schema.Type
+	MetadataSchema schema.Type
 )
 
 func init() {
-	CheckpointSchema = initCheckpointSchema()
-	MsgMetaSchema = initCrossMsgMetaSchema()
-	var err error
-	NoPreviousCheck, err = Linkproto.Sum([]byte("nil"))
-	if err != nil {
-		panic(err)
-	}
-
-	EmptyCheckpoint = &Checkpoint{
-		Data: CheckData{
-			Source:       "",
-			Epoch:        0,
-			PrevCheckCid: NoPreviousCheck.Bytes(),
-		},
-	}
+	NFTSchema = initNFTSchema()
+	MetadataSchema = initMetadataSchema()
 }
 
 // ChildCheck
@@ -95,108 +50,92 @@ type ChildCheck struct {
 	Checks [][]byte //[]cid.Cid
 }
 
-// CrossMsgMeta includes information about the messages being propagated from and to
-// a subnet.
-//
-// MsgsCid is the cid of the list of cids of the mesasges propagated
-// for a specific subnet in that checkpoint
-type CrossMsgMeta struct {
-	From    string // Determines the source of the messages being propagated in MsgsCid
-	To      string // Determines the destination of the messages included in MsgsCid
-	MsgsCid []byte // cid.Cid
-	Nonce   int    // Nonce of the msgMeta
+type NFT struct {
+	Blob     []byte
+	Metadata cid.Cid
 }
 
-// CheckData is the data included in a Checkpoint.
-type CheckData struct {
-	Source string
-	TipSet []byte // NOTE: For simplicity we add TipSetKey. We could include full TipSet
-	Epoch  int
-	// NOTE: Under these bytes there's a cid.Cid. The reason for doing this is
-	// to prevent the VM from interpreting it as a CID from the state
-	// tree trying to fetch it and failing because it can't find anything, so we
-	// are "hiding" them behing a byte type
-	PrevCheckCid []byte
-	Childs       []ChildCheck   // List of child checks
-	CrossMsgs    []CrossMsgMeta // List with meta of msgs being propagated.
-}
-
-// Checkpoint data structure
-//
-// - Data includes all the data for the checkpoint. The Cid of Data
-// is what identifies a checkpoint uniquely.
-// - Signature adds the signature from a miner. According to the verifier
-// used for checkpoint this may be different things.
-type Checkpoint struct {
-	Data      CheckData
-	Signature []byte
+type Metadata struct {
+	Owner   string
+	Network string
+	Item    int
 }
 
 // initCheckpointType initializes the Checkpoint schema
-func initCrossMsgMetaSchema() schema.Type {
+func initNFTSchema() schema.Type {
 	ts := schema.TypeSystem{}
 	ts.Init()
+	// Preamble
 	ts.Accumulate(schema.SpawnString("String"))
 	ts.Accumulate(schema.SpawnInt("Int"))
 	ts.Accumulate(schema.SpawnLink("Link"))
 	ts.Accumulate(schema.SpawnBytes("Bytes"))
 
-	ts.Accumulate(schema.SpawnStruct("CrossMsgMeta",
+	ts.Accumulate(schema.SpawnStruct("NFT",
 		[]schema.StructField{
-			schema.SpawnStructField("From", "String", false, false),
-			schema.SpawnStructField("To", "String", false, false),
-			schema.SpawnStructField("MsgsCid", "Bytes", false, false),
-			schema.SpawnStructField("Nonce", "Int", false, false),
+			schema.SpawnStructField("Blob", "Bytes", false, false),
+			schema.SpawnStructField("Metadata", "Link", false, false),
+		},
+		schema.SpawnStructRepresentationMap(map[string]string{}),
+	))
+	ts.Accumulate(schema.SpawnStruct("Metadata",
+		[]schema.StructField{
+			schema.SpawnStructField("Owner", "String", false, false),
+			schema.SpawnStructField("Network", "String", false, false),
+			schema.SpawnStructField("Item", "Int", false, false),
 		},
 		schema.SpawnStructRepresentationMap(map[string]string{}),
 	))
 
-	return ts.TypeByName("CrossMsgMeta")
+	return ts.TypeByName("NFT")
 }
 
-// initCheckpointType initializes the Checkpoint schema
-func initCheckpointSchema() schema.Type {
+func initMetadataSchema() schema.Type {
 	ts := schema.TypeSystem{}
 	ts.Init()
+	// Preamble
 	ts.Accumulate(schema.SpawnString("String"))
 	ts.Accumulate(schema.SpawnInt("Int"))
 	ts.Accumulate(schema.SpawnLink("Link"))
 	ts.Accumulate(schema.SpawnBytes("Bytes"))
 
-	ts.Accumulate(schema.SpawnStruct("ChildCheck",
+	ts.Accumulate(schema.SpawnStruct("Metadata",
 		[]schema.StructField{
-			schema.SpawnStructField("Source", "String", false, false),
-			schema.SpawnStructField("Checks", "List_Bytes", false, false),
+			schema.SpawnStructField("Owner", "String", false, false),
+			schema.SpawnStructField("Network", "String", false, false),
+			schema.SpawnStructField("Item", "Int", false, false),
 		},
 		schema.SpawnStructRepresentationMap(map[string]string{}),
 	))
-	ts.Accumulate(initCrossMsgMetaSchema())
 
-	ts.Accumulate(schema.SpawnStruct("CheckData",
-		[]schema.StructField{
-			schema.SpawnStructField("Source", "String", false, false),
-			schema.SpawnStructField("TipSet", "Bytes", false, false),
-			schema.SpawnStructField("Epoch", "Int", false, false),
-			schema.SpawnStructField("PrevCheckCid", "Bytes", false, false),
-			schema.SpawnStructField("Childs", "List_ChildCheck", false, false),
-			schema.SpawnStructField("CrossMsgs", "List_CrossMsgMeta", false, false),
-		},
-		schema.SpawnStructRepresentationMap(nil),
-	))
-	ts.Accumulate(schema.SpawnStruct("Checkpoint",
-		[]schema.StructField{
-			schema.SpawnStructField("Data", "CheckData", false, false),
-			schema.SpawnStructField("Signature", "Bytes", false, false),
-		},
-		schema.SpawnStructRepresentationMap(nil),
-	))
-	ts.Accumulate(schema.SpawnList("List_String", "String", false))
-	ts.Accumulate(schema.SpawnList("List_Link", "Link", false))
-	ts.Accumulate(schema.SpawnList("List_Bytes", "Bytes", false))
-	ts.Accumulate(schema.SpawnList("List_ChildCheck", "ChildCheck", false))
-	ts.Accumulate(schema.SpawnList("List_CrossMsgMeta", "CrossMsgMeta", false))
+	return ts.TypeByName("Metadata")
+}
 
-	return ts.TypeByName("Checkpoint")
+func (nft *NFT) MarshalBinary() ([]byte, error) {
+	node := bindnode.Wrap(nft, NFTSchema)
+	nodeRepr := node.Representation()
+	var buf bytes.Buffer
+	err := dagjson.Encode(nodeRepr, &buf)
+	if err != nil {
+		return nil, err
+	}
+	return buf.Bytes(), nil
+}
+
+func (nft *NFT) UnmarshalBinary(b []byte) error {
+	nb := bindnode.Prototype(nft, NFTSchema).NewBuilder()
+	err := dagjson.Decode(nb, bytes.NewReader(b))
+	if err != nil {
+		return err
+	}
+	n := bindnode.Unwrap(nb.Build())
+
+	ch, ok := n.(*NFT)
+	if !ok {
+		return xerrors.Errorf("Unmarshalled node not of type Checkpoint")
+	}
+	*nft = *ch
+	return nil
 }
 
 // Dumb linksystem used to generate links
@@ -209,6 +148,28 @@ func noStoreLinkSystem() ipld.LinkSystem {
 		buf := bytes.NewBuffer(nil)
 		return buf, func(lnk ipld.Link) error {
 			return nil
+		}, nil
+	}
+	return lsys
+}
+
+// LinkSystem determines what to do when coming across links
+func mkLinkSystem(ctx context.Context, ds datastore.Batching) ipld.LinkSystem {
+	lsys := cidlink.DefaultLinkSystem()
+	lsys.StorageReadOpener = func(lctx ipld.LinkContext, lnk ipld.Link) (io.Reader, error) {
+		fmt.Println(">> Came across a link while loading in lsys", lnk.(cidlink.Link).Cid)
+		c := lnk.(cidlink.Link).Cid
+		val, err := ds.Get(ctx, datastore.NewKey(c.String()))
+		if err != nil {
+			return nil, err
+		}
+		return bytes.NewBuffer(val), nil
+	}
+	lsys.StorageWriteOpener = func(lctx ipld.LinkContext) (io.Writer, ipld.BlockWriteCommitter, error) {
+		buf := bytes.NewBuffer(nil)
+		return buf, func(lnk ipld.Link) error {
+			c := lnk.(cidlink.Link).Cid
+			return ds.Put(ctx, datastore.NewKey(c.String()), buf.Bytes())
 		}, nil
 	}
 	return lsys
