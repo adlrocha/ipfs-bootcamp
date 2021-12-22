@@ -1,29 +1,33 @@
 # DAY 1: The IPFS Stack
 Learning how IPFS works under the hood.
 
-### Introduction: Why IPFS? (10 min)
-### Content addressing in IPFS (90 min)
+### 🤷‍♂️ Introduction: Why IPFS? (10 min)
+### 🖇️ Content addressing in IPFS (90 min)
 - [Anatomy of a Cid](https://cid.ipfs.io/)
 - [Installing IPFS Desktop](https://docs.ipfs.io/install/ipfs-desktop/)
 - [Installing IPFS Companion](https://docs.ipfs.io/install/ipfs-companion/)
 - [Installing CLI](./ipfs/ipfs_install.md)
 - Adding a simple file over IPFS using IPFS Desktop.
 - Finding it in your browser with IPFS companion (or Brave)
-        - https://ipfs.io/ipfs/Qmf17K1hK6DnaLXK1BoumJLzEQPXtcuHu6FXZTtQ9H7Vav
+  - https://ipfs.io/ipfs/Qmf17K1hK6DnaLXK1BoumJLzEQPXtcuHu6FXZTtQ9H7Vav
 - [Creating a simple website that uploads to IPFS](./ipfs/ipfs-example)
-        - Local node
-        - Infura
+  - Local node
+  - Infura
 - [Updating with Pinata and pinning a file]()
+  - Why pinning a file?
+  - How gateways work?
+  - Differences between pinning and adding.
 - Introduction to go-ipfs / Gateways.
-
-### IPLD
-- Introduction to IPLD (20 min)
-        - Hands on with IPLD. (30 min)
 
 ### ☕ (20 min)
 - Introduction to Libp2p (20 min)
         - Hands on with libp2p. (30 min)
 - Break (10 min)
+
+### 📂 IPLD
+- Introduction to IPLD (20 min)
+        - Hands on with IPLD. (30 min)
+
 
 ## Slides
 - (optional) [Welcome to Web3](https://docs.google.com/presentation/d/1LvyOH1cqRNefbdLfVwg7raHMqbas0zE6UuQLT2MOTPI/edit#slide=id.gc7c539c017_1_0)
