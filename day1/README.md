@@ -2,6 +2,7 @@
 Learning how IPFS works under the hood.
 
 ### 🤷‍♂️ Introduction: Why IPFS? (10 min)
+        - [Use case for the bootcamp](../day5)
 ### 🖇️ Content addressing in IPFS(~ 100 min)
 - [Anatomy of a Cid](https://cid.ipfs.io/)
 
@@ -30,6 +31,8 @@ Learning how IPFS works under the hood.
   - How gateways work?
   - Differences between pinning and adding.
   - _(exercise)_ [Unpin content from Pinata](https://docs.pinata.cloud/api-pinning/unpin)
+  - Configuring our go-ipfs node to use Pinata as pinning service.
+        - Ensure there is another node pinning content.
 
 #### Getting files
 - Getting a file from IPFS
@@ -50,8 +53,11 @@ Learning how IPFS works under the hood.
   - Interact with IPFS as if it was the local filesystem.
     - `ipfs files`
 
-
 ### ☕ (20 min)
+
+### Content Routing in IPFS (~ 30 min)
+- How are peers and content found in the IPFS network.
+
 ### 📂 IPLD (~ 50 min)
 - Introduction to IPLD
   - [IPLD docs](https://ipld.io/docs/)
@@ -62,18 +68,21 @@ Learning how IPFS works under the hood.
   - [How IPFS Web Gateways Work](https://ipld.io/docs/synthesis/how-ipfs-web-gateways-work/)
   - [IPLD Encryption](https://ipld.io/docs/synthesis/encryption/)
 
-### Libp2p (~ 50 min)
-- Introduction to Libp2p (20 min)
-        - Hands on with libp2p. (30 min)
-- Break (10 min)
+### ☕ (10 min)
+### 🧑‍💻 Libp2p (~ 50 min)
+- Introduction to Libp2p 
+- [Hands on with libp2p](./libp2p)
+  - _exercise_ Send marshalled data from an IPLD node
+- [Run a few go-libp2p examples](https://github.com/libp2p/go-libp2p/tree/master/examples)
+- Alternatively, [run them in javascript](https://github.com/libp2p/js-libp2p/tree/master/examples)
 
+## Resources
+- [Libp2p boilerplate](https://github.com/adlrocha/libp2p-boilerplate)
+- [Libp2p examples](https://github.com/libp2p/go-libp2p/tree/master/examples)
 
 ## Slides
 - (optional) [Welcome to Web3](https://docs.google.com/presentation/d/1LvyOH1cqRNefbdLfVwg7raHMqbas0zE6UuQLT2MOTPI/edit#slide=id.gc7c539c017_1_0)
 - [Content Addressing in IPFS](https://docs.google.com/presentation/d/1Ym2jGkQAnK4NftPYJPsffQKsxZoh5hf9o-PPsAxoAnw/edit#slide=id.gcbc13f3623_1_65): How content is represented in the IPFS network.
-- [Content Routing](https://docs.google.com/presentation/d/15kzc0rEgOmFTKfcY17E6sjxRDGyqGt760wLTonTtomc/edit#slide=id.gca91fcfd49_0_0): How is content found in IPFS
-- (optional) [Content Exchange](https://docs.google.com/presentation/d/1VqduQ6bWMV_R9CQCd86vs1Ozw4WnA3bdO-h-wWilf_0/edit#slide=id.gca3c208903_0_0): How is data transferred in the IPFS network.
-- [Mutable Content](https://docs.google.com/presentation/d/1M63MpZYBBUpN8gvvWjbuPjaeny3aFBb5Hdzx-mr2yIw/edit#slide=id.gcad439d6ee_0_346): How to represent mutable content in the IPFS network.
 - (optional) [Libp2p](https://docs.google.com/presentation/d/190-e2PvZ9OPu3oLrT1j2Qf5RmWygV-7txpYrrcnip04/edit#slide=id.gd4931e17b8_0_4)
 - (optional) [IPLD](https://docs.google.com/presentation/d/1-ZscY84fI_gncQn6H3IOLnL8Icr06a9aun8dgvKUGtM/edit#slide=id.gd94be6831b_1_315)
-
+- [Content Routing](https://docs.google.com/presentation/d/15kzc0rEgOmFTKfcY17E6sjxRDGyqGt760wLTonTtomc/edit#slide=id.gca91fcfd49_0_0): How is content found in IPFS
