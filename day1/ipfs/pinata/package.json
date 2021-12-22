@@ -1,0 +1,16 @@
+{
+  "name": "pinata",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pinata.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "base-path-converter": "^1.0.2",
+    "recursive-fs": "^2.1.0"
+  }
+}
