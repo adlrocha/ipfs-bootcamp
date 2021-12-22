@@ -9,7 +9,7 @@ Learning how IPFS works under the hood.
 - [Installing CLI](./ipfs/ipfs_install.md)
 - Adding a simple file over IPFS using IPFS Desktop.
 
-- Finding it in your browser with IPFS companion (or Brave)
+#### Finding it in your browser with IPFS companion (or Brave)
   - https://ipfs.io/ipfs/Qmf17K1hK6DnaLXK1BoumJLzEQPXtcuHu6FXZTtQ9H7Vav
 - [Creating a simple website that uploads to IPFS](./ipfs/ipfs-example)
   - Local node
