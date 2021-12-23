@@ -52,4 +52,4 @@ const pinDirectoryToIPFS = (pinataApiKey, pinataSecretApiKey) => {
 };
 
 // Yikes! Super insecure.
-pinDirectoryToIPFS("65ced690e93a75c0e08b", "9a7fa58c1bea344dd1f1cd7678bb663f0688128ba9741ac7f460bb08dd96afad");
+pinDirectoryToIPFS("API_KEY", "API_SECRET");
