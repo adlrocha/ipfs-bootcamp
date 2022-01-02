@@ -7,6 +7,7 @@ Learning how IPFS works under the hood
 - (_optional) DRAND
 
 ### IPNS (~ 20 min)
+- Upload static website as a directory (use relative paths for assets).
 - [Publishing mutable content in the IPFS network](./ipns)
 - [DNSLink: Using IPNS and DNS for mutable content](https://dnslink.io).
   - See how `docs.ipfs.io` is actually in IPFS (like many other sites): `dig +noall +answer TXT \_dnslink.docs.ipfs.io`
