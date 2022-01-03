@@ -1,4 +1,4 @@
-# DAY 5: Workshop use cases and the future
+#DAY 5: Workshop use cases and the future
 
 ## Use case: "NFT" Cert platform with TrustOS and IPFS (~120 min)
 Build a use case of an NFT platform over IPFS and TrustOS.
@@ -8,6 +8,8 @@ Build a use case of an NFT platform over IPFS and TrustOS.
         - Web3.storage // Personal node // Ecosystem tools
 - Design the interaction with the IPFS network.
 - Design where will the website be hosted (fully decentralized?)
+
+![](./architecture.jpg "Web2 v.s. Web3 architectures")
 
 ## The future (~ 30-60 min)
 - [3DMs: Data Delivery Markets](https://docs.google.com/presentation/d/1XKHw5oxRUTC6fXnxMJQlnE2HiruZ2cZfw9RpewQV2uY/edit#slide=id.g8b8e94d306_0_2)
