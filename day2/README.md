@@ -12,7 +12,7 @@ Learning how IPFS works under the hood
 - [Publishing mutable content in the IPFS network](./ipns)
 - [DNSLink: Using IPNS and DNS for mutable content](https://dnslink.io).
   - See how `docs.ipfs.io` is actually in IPFS (like many other sites): `dig +noall +answer TXT \_dnslink.docs.ipfs.io`
-- _optional_ [Mutable Filesystems and UnixFS](https://docs.ipfs.io/concepts/file-systems/#mutable-file-system-mfs)
+- [Mutable Filesystems and UnixFS](https://docs.ipfs.io/concepts/file-systems/#mutable-file-system-mfs)
         - Try `ipfs files ls`
 
 ### 🖥️ IPFS Cluster and private networks (~ 60 min)

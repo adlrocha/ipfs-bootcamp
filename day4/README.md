@@ -7,9 +7,9 @@
 - [Getting started with Filecoin](https://protocollabs.notion.site/Getting-started-with-IPFS-Filecoin-173c73d4d8d64765a42058594bc46bb7)
 
 ## 🛰️ Interacting with the Filecoin network
-- [Install Lotus]()
-  - [Lotus light]()
-- [Estuary]()
+### Lotus
+- [Install Lotus](https://lotus.filecoin.io/docs/set-up/install/)
+  - [Lotus lite](https://lotus.filecoin.io/docs/set-up/lotus-lite/)
 - [Install development network](https://lotus.filecoin.io/docs/developers/developer-network/)
   - Storage onboarding.
   - Proofs
@@ -18,6 +18,11 @@
 - [Payment channels](https://lotus.filecoin.io/docs/developers/payment-channels/)
 - [Store and Retrieve data](https://lotus.filecoin.io/docs/tutorials/store-and-retrieve/)
 - [Retrieve Data](https://lotus.filecoin.io/docs/developers/retrieve-data/)
+
+### Estuary
+- [Estuary](https://estuary.tech/)
+  - [Deploy estuary locally](https://github.com/application-research/estuary)
+  - [Getting started](https://docs.estuary.tech/tutorial-get-an-api-key)
 
 ## 💸 Wallets
 - [Glif Wallet](https://wallet.glif.io/?network=f)

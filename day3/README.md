@@ -1,4 +1,4 @@
-# DAY 2
+# DAY 3
 
 # 💽 Storage Apps (~ 60 min)
 - [Starling](https://docs.filecoin.io/store/starling/#getting-started): Long-term archival.
@@ -22,8 +22,9 @@
     - [Space Desktop App](https://docs.fleek.co/space-desktop/overview/): GDrive-like alternative.
 
 - [Textile]()
-- [ThreadDB]()
-- [OrbitDB]()
+- ThreadDB: Multiparty database built on IPFS and Libp2p
+  - [Threads](https://docs.textile.io/threads/)
+  - [Developer API](https://docs.textile.io/threads/#developer-api)
+  - [Hub](https://docs.textile.io/hub/)
+- [OrbitDB](https://orbitdb.org/): Peer-to-peer databases
 
-## Resources
-- 
