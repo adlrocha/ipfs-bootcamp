@@ -63,7 +63,7 @@ Learning how IPFS works under the hood.
   - [IPLD docs](https://ipld.io/docs/)
 - Hands on with IPLD: [Schemas / LinkSystem](./ipld)
 - [CARs (Content Addressable aRchives)](https://ipld.io/specs/transport/car/)
-- Filecoin sectors are represented as CARs
+  - Filecoin sectors are represented as CARs
 - Advanced concepts
   - [How IPFS Web Gateways Work](https://ipld.io/docs/synthesis/how-ipfs-web-gateways-work/)
   - [IPLD Encryption](https://ipld.io/docs/synthesis/encryption/)

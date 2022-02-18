@@ -1,9 +1,12 @@
 # DAY 4
 
-## Introduction to Filecoin for builders (~50min)
+## 🪙 Introduction to Filecoin for builders (~50min)
+- [Intro to Filecoin](https://docs.google.com/presentation/d/1Kjqa5_wZfxQaoKyE3UsrmA-eYWL78bSz5-OXBN18s-4/edit?usp=sharing)
+  - [Filecoin Spec](https://spec.filecoin.io/) 
+- [Filecoin Implementations](https://docs.filecoin.io/get-started/#filecoin-implementations)
 - [Getting started with Filecoin](https://protocollabs.notion.site/Getting-started-with-IPFS-Filecoin-173c73d4d8d64765a42058594bc46bb7)
 
-## Interacting with the Filecoin network
+## 🛰️ Interacting with the Filecoin network
 - [Install Lotus]()
   - [Lotus light]()
 - [Estuary]()
@@ -16,7 +19,8 @@
 - [Store and Retrieve data](https://lotus.filecoin.io/docs/tutorials/store-and-retrieve/)
 - [Retrieve Data](https://lotus.filecoin.io/docs/developers/retrieve-data/)
 
-#
+## 💸 Wallets
+- [Glif Wallet](https://wallet.glif.io/?network=f)
 
 # Slides
 - [Intro to Filecoin](https://docs.google.com/presentation/d/1Kjqa5_wZfxQaoKyE3UsrmA-eYWL78bSz5-OXBN18s-4/edit?usp=sharing)

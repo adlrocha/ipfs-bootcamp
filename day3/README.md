@@ -1,6 +1,6 @@
 # DAY 2
 
-# Storage Apps (~ 60 min)
+# 💽 Storage Apps (~ 60 min)
 - [Starling](https://docs.filecoin.io/store/starling/#getting-started): Long-term archival.
 - [Slate](https://slate.host/): "Drive" over Filecoin
   - Save from link
