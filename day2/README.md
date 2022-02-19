@@ -2,10 +2,10 @@
 Learning how IPFS works under the hood
 
 ### 🚀 A few more protocols (~ 60 min)
-- [Content Routing](https://docs.google.com/presentation/d/15kzc0rEgOmFTKfcY17E6sjxRDGyqGt760wLTonTtomc/edit#slide=id.gca91fcfd49_0_0): How is content found in IPFS
 - _(optional)_ [Content Exchange](https://docs.google.com/presentation/d/1VqduQ6bWMV_R9CQCd86vs1Ozw4WnA3bdO-h-wWilf_0/edit#slide=id.gca3c208903_0_0): How is data transferred in the IPFS network.
 - _(optional)_ [DRAND](https://docs.google.com/presentation/d/1xDU1a7P_BkMhy-AkgOz0zDGqsGsE7HKx2bfwlzZ5fWc/edit): Randomness beacons
 - [Mutable Content](https://docs.google.com/presentation/d/1M63MpZYBBUpN8gvvWjbuPjaeny3aFBb5Hdzx-mr2yIw/edit#slide=id.gcad439d6ee_0_346): How to represent mutable content in the IPFS network.
+  - [Peerpad](https://peerpad.net)
 
 ### 📛 IPNS (~ 20 min)
 - Upload static website as a directory (use relative paths for assets).
@@ -34,7 +34,7 @@ The simplest way to store data with some linked metadata.
   - [IPFS Car](https://car.ipfs.io/)
   - [Working with CARs](·/cars.md)
 - [Web3 storage docs](https://docs.web3.storage/examples/getting-started)
-- [Hands on Web3.Storage](./web3_storage)
+- [Hands on Web3.Storage](./web_storage)
   - [API docs](https://docs.web3.storage/reference/http-api/#tag/Web3.Storage-HTTP-API)
   - [Web3.storage examples](https://github.com/web3-storage/web3.storage/tree/main/packages/client/examples/node.js)
   - [Example of Drand relay](https://github.com/alanshaw/drand-relay-w3s)

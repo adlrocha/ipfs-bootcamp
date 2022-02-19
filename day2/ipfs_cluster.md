@@ -26,10 +26,14 @@ ipfs-cluster ctl add <file>
 ```
 
 - Configure template to start new nodes.
-  - Set `export CLUSTER_SECRET=secret` for a raw start
+  - Set `export CLUSTER_SECRET=secret` for a raw start in new node.
 - Use existing `service.json` from previous start (remember to have multiaddress in other ports binded)
  - To start in another folder in the same environment: `ipfs-cluster-service -c someFolder init`
  - Replace service.json with template
+ - Adding addresses for other peers to the peer_addresses array in the configuration.
+    - Pre-filling the peerstore file with addresses for other peers (as we saw in the previous section).
+    - Running with the --bootstrap <peer-multiaddress1,peer-multiaddress2> flag. Note that using this flag will automatically trust the given peers. For more information about trust, read the CRDT section.
+    - In local networks with mDNS discovery support, peers will autodiscover each other and no additional measures are necessary.
  - Start to see that the template works before distribution: `ipfs-cluster-service -c someFolder daemon`
  - Check that it joins the cluster: `ipfs-cluster-ctl peers ls`
   
@@ -60,7 +64,7 @@ ipfs-cluster-ctl pin add <cid/ipfs-path> --replication 3
 # You can also use --replication_factor_max --replication_factor_min
 ipfs-cluster-ctl pin rm <cid/ipfs-path>
 ipfs-cluster-ctl pin ls         # List of pins
-ipfs-cluster-ctl pin status <cid>    # Status of pins
+ipfs-cluster-ctl status <cid>    # Status of pins
 ```
 - Metrics of the cluster
 ```

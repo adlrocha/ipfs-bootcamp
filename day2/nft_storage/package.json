@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nft.storage": "^5.2.0"
+    "nft.storage": "^5.2.5"
   }
 }

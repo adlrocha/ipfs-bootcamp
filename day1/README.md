@@ -3,22 +3,30 @@ Learning how IPFS works under the hood.
 
 ### 🤷‍♂️ Introduction: Why IPFS? (10 min)
   - [Use case for the bootcamp](../day5)
+
 ### 🖇️ Content addressing in IPFS(~ 100 min)
-- [Content Addressing in IPFS](https://docs.google.com/presentation/d/1Ym2jGkQAnK4NftPYJPsffQKsxZoh5hf9o-PPsAxoAnw/edit#slide=id.gcbc13f3623_1_65): How content is represented in the IPFS network.
+- [Content Addressing in IPFS](https://docs.google.com/presentation/d/1Ym2jGkQAnK4NftPYJPsffQKsxZoh5hf9o-PPsAxoAnw): How content is represented in the IPFS network.
 - [Anatomy of a Cid](https://cid.ipfs.io/)
+  - [Proto.school tutorial](https://proto.school/anatomy-of-a-cid/06)
 
 #### Installing IPFS
 - [Installing IPFS Desktop](https://docs.ipfs.io/install/ipfs-desktop/)
+  - Visual overview of IPFS' operation.
+  - Modules from the Web3 stack used by IPFS.
 - [Installing IPFS Companion](https://docs.ipfs.io/install/ipfs-companion/)
 - [Installing CLI](./ipfs/ipfs_install.md)
 
 #### Adding files to IPFS
 - Adding a simple file over IPFS using IPFS Desktop.
+  - `ipfs add` / `ipfs cat`
 - Finding it in your browser with IPFS companion (or Brave)
   - https://ipfs.io/ipfs/Qmf17K1hK6DnaLXK1BoumJLzEQPXtcuHu6FXZTtQ9H7Vav
+  - Try with your own file through CID.
 - [Creating a simple website that uploads a file to IPFS](./ipfs/ipfs-example)
-  - Local node
-  - Infura
+  - Connect to local node
+  - Connect to Infura Gateway
+  - Upload the website to IPFS: `ipfs add -R build`
+- Let's try to connect our nodes!!🙌
 
 #### Pinning files
 - Updating with Pinata and pinning a file
@@ -31,9 +39,13 @@ Learning how IPFS works under the hood.
   - Why pinning a file?
   - How gateways work?
   - Differences between pinning and adding.
-  - _(exercise)_ [Unpin content from Pinata](https://docs.pinata.cloud/api-pinning/unpin)
   - Configuring our go-ipfs node to use Pinata as pinning service.
-        - Ensure there is another node pinning content.
+    - Ensure there is another node pinning content.
+      - `ipfs pin remote service add pinata https://api.pinata.cloud/psa YOUR_JWT`    
+      - `ipfs pin remote add --service=pinata --name=war-and-peace.txt bafybeib32tuqzs2wrc52rdt56cz73sqe3qu2deqdudssspnu4gbezmhig4`
+      - `ipfs pin remote ls --service=pinata`
+      - `ipfs pin remote ls --service=pinata --status=queued,pinning,failed`
+  - _(exercise)_ [Unpin content from Pinata](https://docs.pinata.cloud/api-pinning/unpin)
 
 #### Getting files
 - Getting a file from IPFS
@@ -53,12 +65,14 @@ Learning how IPFS works under the hood.
     - `ipfs pin`
   - Interact with IPFS as if it was the local filesystem.
     - `ipfs files`
+  - Interact via [API](https://docs.ipfs.io/reference/http/api/#api-v0-dag-get):
+    - Get a file: `curl -X POST "http://127.0.0.1:5001/api/v0/dag/get?arg=QmaJk4KMwvfthjWhQZEe73DhfT277gUKJVH18eAyRQd58b&output-codec=dag-json"`
 
 ### Content Routing in IPFS (~ 30 min)
-- How are peers and content found in the IPFS network.
+- [Content Routing](https://docs.google.com/presentation/d/15kzc0rEgOmFTKfcY17E6sjxRDGyqGt760wLTonTtomc): How is content found in IPFS
 
 ### 📂 IPLD (~ 50 min)
-- [Introduction to IPLD](https://docs.google.com/presentation/d/1-ZscY84fI_gncQn6H3IOLnL8Icr06a9aun8dgvKUGtM/edit#slide=id.gd94be6831b_1_315)
+- [Introduction to IPLD](https://docs.google.com/presentation/d/1-ZscY84fI_gncQn6H3IOLnL8Icr06a9aun8dgvKUGtM/)
   - [IPLD docs](https://ipld.io/docs/)
 - Hands on with IPLD: [Schemas / LinkSystem](./ipld)
 - [CARs (Content Addressable aRchives)](https://ipld.io/specs/transport/car/)
@@ -67,9 +81,8 @@ Learning how IPFS works under the hood.
   - [How IPFS Web Gateways Work](https://ipld.io/docs/synthesis/how-ipfs-web-gateways-work/)
   - [IPLD Encryption](https://ipld.io/docs/synthesis/encryption/)
 
-### ☕ (10 min)
 ### 🧑‍💻 Libp2p (~ 50 min)
-- [Introduction to Libp2p](https://docs.google.com/presentation/d/190-e2PvZ9OPu3oLrT1j2Qf5RmWygV-7txpYrrcnip04/edit#slide=id.gd4931e17b8_0_4)
+- [Introduction to Libp2p](https://docs.google.com/presentation/d/190-e2PvZ9OPu3oLrT1j2Qf5RmWygV-7txpYrrcnip04/)
 - [Hands on with libp2p](./libp2p)
   - _exercise_ Send marshalled data from an IPLD node
 - [Run a few go-libp2p examples](https://github.com/libp2p/go-libp2p/tree/master/examples)
@@ -80,8 +93,8 @@ Learning how IPFS works under the hood.
 - [Libp2p examples](https://github.com/libp2p/go-libp2p/tree/master/examples)
 
 ## Slides
-- [Welcome to Web3](https://docs.google.com/presentation/d/1LvyOH1cqRNefbdLfVwg7raHMqbas0zE6UuQLT2MOTPI/edit#slide=id.gc7c539c017_1_0)
-- [Content Addressing in IPFS](https://docs.google.com/presentation/d/1Ym2jGkQAnK4NftPYJPsffQKsxZoh5hf9o-PPsAxoAnw/edit#slide=id.gcbc13f3623_1_65): How content is represented in the IPFS network.
-- [Libp2p](https://docs.google.com/presentation/d/190-e2PvZ9OPu3oLrT1j2Qf5RmWygV-7txpYrrcnip04/edit#slide=id.gd4931e17b8_0_4)
-- [IPLD](https://docs.google.com/presentation/d/1-ZscY84fI_gncQn6H3IOLnL8Icr06a9aun8dgvKUGtM/edit#slide=id.gd94be6831b_1_315)
-- [Content Routing](https://docs.google.com/presentation/d/15kzc0rEgOmFTKfcY17E6sjxRDGyqGt760wLTonTtomc/edit#slide=id.gca91fcfd49_0_0): How is content found in IPFS
+- [Welcome to Web3](https://docs.google.com/presentation/d/1LvyOH1cqRNefbdLfVwg7raHMqbas0zE6UuQLT2MOTPI/)
+- [Content Addressing in IPFS](https://docs.google.com/presentation/d/1Ym2jGkQAnK4NftPYJPsffQKsxZoh5hf9o-PPsAxoAnw/): How content is represented in the IPFS network.
+- [Libp2p](https://docs.google.com/presentation/d/190-e2PvZ9OPu3oLrT1j2Qf5RmWygV-7txpYrrcnip04/)
+- [IPLD](https://docs.google.com/presentation/d/1-ZscY84fI_gncQn6H3IOLnL8Icr06a9aun8dgvKUGtM/)
+- [Content Routing](https://docs.google.com/presentation/d/15kzc0rEgOmFTKfcY17E6sjxRDGyqGt760wLTonTtomc/): How is content found in IPFS

@@ -38,18 +38,6 @@ func init() {
 	MetadataSchema = initMetadataSchema()
 }
 
-// ChildCheck
-type ChildCheck struct {
-	Source string
-	// NOTE: Same problem as below, checks is
-	// []cid.Cid, but we are hiding it behind a bunch
-	// of bytes to prevent the VM from trying to fetch the
-	// cid from the state tree. We still want to use IPLD
-	// for now. We may be able to remove this problem
-	// if we use cbor-gen directly.
-	Checks [][]byte //[]cid.Cid
-}
-
 type NFT struct {
 	Blob     []byte
 	Metadata cid.Cid

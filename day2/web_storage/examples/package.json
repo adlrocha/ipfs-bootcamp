@@ -1,0 +1,16 @@
+{
+  "name": "web3-storage-examples",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Examples of using web3.storage in Node.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "minimist": "^1.2.5",
+    "web3.storage": "latest"
+  },
+  "author": "Vasco Santos",
+  "license": "(Apache-2.0 AND MIT)"
+}
