@@ -1,4 +1,6 @@
 # ipfs-bootcamp
+
+## Content
 A good way to get started with the Web3 stack.
 - [Day 1: The IPFS Stack (I)](./day1)
 - [Day 2: The IPFS Stack (II)](./day2)
@@ -6,7 +8,7 @@ A good way to get started with the Web3 stack.
 - [Day 4: Filecoin](./day4)
 - [Day 5: Building a use case](./day5)
 
-### Logistics
+## Logistics
 - First things first, run
 ```
 git clone https://github.com/adlrocha/ipfs-bootcamp
@@ -22,4 +24,7 @@ of topics and technologies for you to choose the ones you are more interested
 in (leaving the rest for future reference).
 - If there is a specific topic or question I don't know, I'll take it as a home
 assignment, find the solution, and give it to you the next day.
+- If something doesn't work, one step has changed, or there has been an update,
+file an issue and/or a PR.
+- You have questions/ideas/suggestions? Open a [discussion](https://github.com/adlrocha/ipfs-bootcamp/discussions) topic.
 - 1h sessions with 15 min break or 2h sessions with 30 min break?
