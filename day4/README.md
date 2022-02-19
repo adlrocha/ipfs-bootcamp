@@ -8,7 +8,7 @@
   - Perform a storage deal.
   - Add Chrome extension
 
-- [Fleek](https://docs.fleek.co/)
+### [Fleek](https://docs.fleek.co/)
   - Hosting
     - [Deploy a website with fleek](https://app.fleek.co/)
     - [Tutorial](https://docs.fleek.co/hosting/site-deployment/) 
@@ -21,7 +21,13 @@
     - [S3 Storage interface](https://docs.fleek.co/storage/storage-aws-s3-integration/)
     - [Space Desktop App](https://docs.fleek.co/space-desktop/overview/): GDrive-like alternative.
 
-- [Textile]()
+### [Infura](https://infura.io)
+  - [Docs](https://docs.infura.io/infura/networks/filecoin)
+  - Create an account and create a new Filecoin project.
+  - [Exercose: Interact with infura Filecoin API](https://docs.filecoin.io/build/get-started/#infura-api)
+
+
+### [Textile]()
 - ThreadDB: Multiparty database built on IPFS and Libp2p
   - [Threads](https://docs.textile.io/threads/)
   - [Developer API](https://docs.textile.io/threads/#developer-api)
