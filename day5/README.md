@@ -14,6 +14,7 @@ Build a use case of an NFT platform over IPFS and TrustOS.
 ## The future (~ 30-60 min)
 - [3DMs: Data Delivery Markets](https://docs.google.com/presentation/d/1XKHw5oxRUTC6fXnxMJQlnE2HiruZ2cZfw9RpewQV2uY/edit#slide=id.g8b8e94d306_0_2)
 - [FVM](https://github.com/filecoin-project/fvm-project/)
+  - [ERC20 in FVM](https://github.com/filecoin-project/ref-fvm/pull/290/files)
 - Hierarchical Consensus: Subnets in Filecoin
 - SnapDeals
 - [IPFS Compute](https://github.com/adlrocha/ipfs-compute)
