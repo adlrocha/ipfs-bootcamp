@@ -3,7 +3,7 @@ import fs from 'fs'
 import { NFTStorage, File } from 'nft.storage'
 
 const endpoint = 'https://api.nft.storage' // the default
-const token = 'YOUR_API_KEY'
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweGEzZGZhQ0EyZUY0RTRlOThBYzdBNTkzM2IxYTU1MDlmRmM3Y0Y1RWEiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY0NTI2OTQ4NzQwMiwibmFtZSI6InRlc3QifQ.EcngebUP88jccHfglSlbIhadxwSnrHEw2XmGo3thCbQ'
 
 async function main() {
   const storage = new NFTStorage({ endpoint, token })

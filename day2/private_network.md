@@ -19,4 +19,5 @@ ipfs bootstrap add <multiaddr_of_bootstrap>
 
 The problem with private networks is that there
 is no pinning replication between all the peers in
-the network. For pinning replication we can use IPFS Cluster
+the network. For pinning replication we can use IPFS Cluster.
+Remember that IPFS Cluster uses an IPFS node as a sidecar.

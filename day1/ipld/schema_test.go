@@ -26,6 +26,7 @@ func TestNFT(t *testing.T) {
 		Network: "ethereum",
 		Item:    0,
 	}
+	// Notify the type of schema for the struct.
 	mNode := bindnode.Wrap(metadata, MetadataSchema)
 	mlnk, err := lsys.Store(ipld.LinkContext{},
 		Linkproto,
@@ -62,7 +63,7 @@ func TestMarshalNFT(t *testing.T) {
 		mNode.Representation())
 	require.NoError(t, err)
 
-	// Create NFT
+	// Create NFT with link to metadata.
 	nft := &NFT{
 		Blob:     []byte("myNFT"),
 		Metadata: mlnk.(cidlink.Link).Cid,
@@ -77,7 +78,6 @@ func TestMarshalNFT(t *testing.T) {
 	t.Log(nft)
 
 	// Marshal
-	// Marshal
 	bs, err := nft.MarshalBinary()
 	require.NoError(t, err)
 
@@ -86,6 +86,16 @@ func TestMarshalNFT(t *testing.T) {
 	err = nft2.UnmarshalBinary(bs)
 	require.NoError(t, err)
 	require.Equal(t, nft2, nft)
+
+	// Get data from link and IPLD node.
+	mFromLink, err := lsys.Load(ipld.LinkContext{}, mlnk, mNode.Prototype())
+	require.NoError(t, err)
+	t.Log("Loaded link for metadata:", mFromLink)
+	nowner, err := mFromLink.LookupByString("Owner")
+	require.NoError(t, err)
+	owner, err := nowner.AsString()
+	require.NoError(t, err)
+	t.Log("Owner from metadata:", owner)
 
 }
 
@@ -101,6 +111,7 @@ func TestWithoutSchemaMarshal(t *testing.T) {
 	n := nb.Build() // Call 'Build' to get the resulting Node.  (It's immutable!)
 
 	dagjson.Encode(n, os.Stdout)
+	fmt.Println()
 
 	// Output:
 	// {"hey":"it works!","yes":true}

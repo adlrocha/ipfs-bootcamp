@@ -5,7 +5,7 @@
 ```
 ipfs add day2/ipns/website.html
 ipfs cat QmdZc8QqFUNkQVpM5Zk1cCSomvksECBeffPuoe3yWfqt4Z
-ipfs name publish /ipfs/QmUVTKsrYJpaxUT7dr9FpKq6AoKHhEM7eG1ZHGL56haKLG
+ipfs name publish /ipfs/QmdZc8QqFUNkQVpM5Zk1cCSomvksECBeffPuoe3yWfqt4Z
 
 # See where you ipns name is pointing
 ipfs name resolve

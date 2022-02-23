@@ -1,26 +1,27 @@
 # DAY 2
 Learning how IPFS works under the hood
 
-### A few more protocols (~ 60 min)
-- (_optional_) Context Exchange
-- Protocols to handle mutable content
-- (_optional) DRAND
+### 🚀 A few more protocols (~ 60 min)
+- _(optional)_ [Content Exchange](https://docs.google.com/presentation/d/1VqduQ6bWMV_R9CQCd86vs1Ozw4WnA3bdO-h-wWilf_0/edit#slide=id.gca3c208903_0_0): How is data transferred in the IPFS network.
+- _(optional)_ [DRAND](https://docs.google.com/presentation/d/1xDU1a7P_BkMhy-AkgOz0zDGqsGsE7HKx2bfwlzZ5fWc/edit): Randomness beacons
+- [Mutable Content](https://docs.google.com/presentation/d/1M63MpZYBBUpN8gvvWjbuPjaeny3aFBb5Hdzx-mr2yIw/edit#slide=id.gcad439d6ee_0_346): How to represent mutable content in the IPFS network.
+  - [Peerpad](https://peerpad.net)
 
-### IPNS (~ 20 min)
+### 📛 IPNS (~ 20 min)
 - Upload static website as a directory (use relative paths for assets).
 - [Publishing mutable content in the IPFS network](./ipns)
 - [DNSLink: Using IPNS and DNS for mutable content](https://dnslink.io).
   - See how `docs.ipfs.io` is actually in IPFS (like many other sites): `dig +noall +answer TXT \_dnslink.docs.ipfs.io`
-- _optional_ [Mutable Filesystems and UnixFS](https://docs.ipfs.io/concepts/file-systems/#mutable-file-system-mfs)
+- [Mutable Filesystems and UnixFS](https://docs.ipfs.io/concepts/file-systems/#mutable-file-system-mfs)
         - Try `ipfs files ls`
 
-### IPFS Cluster and private networks (~ 60 min)
+### 🖥️ IPFS Cluster and private networks (~ 60 min)
 - [Deploy a private network](./private_network.md)
 - [IPFS Cluster](https://cluster.ipfs.io)
 - [Architecture overview](https://cluster.ipfs.io/documentation/deployment/architecture/)
 - [Hands on: Let's try to create our own IPFS Cluster](./ipfs_cluster.md)
 
-### NFT.Storage / Web3.Storage (~ 100 min)
+### 💿 NFT.Storage / Web3.Storage (~ 100 min)
 The simplest way to store data with some linked metadata.
 - [NFT Storage docs](https://nft.storage/#docs)
   - [Client lib](https://nftstorage.github.io/nft.storage/client/)
@@ -33,14 +34,14 @@ The simplest way to store data with some linked metadata.
   - [IPFS Car](https://car.ipfs.io/)
   - [Working with CARs](·/cars.md)
 - [Web3 storage docs](https://docs.web3.storage/examples/getting-started)
-- [Hands on Web3.Storage](./web3_storage)
+- [Hands on Web3.Storage](./web_storage)
   - [API docs](https://docs.web3.storage/reference/http-api/#tag/Web3.Storage-HTTP-API)
   - [Web3.storage examples](https://github.com/web3-storage/web3.storage/tree/main/packages/client/examples/node.js)
   - [Example of Drand relay](https://github.com/alanshaw/drand-relay-w3s)
   - (_optional_) [Golang library](https://pkg.go.dev/github.com/web3-storage/go-w3s-client#Client)
     - [Example](https://github.com/web3-storage/go-w3s-client/tree/main/example)
 
-### Summary: Interacting with IPFS
+### 📓 Summary: Interacting with IPFS
 - [`go-ipfs`](https://github.com/ipfs/go-ipfs/)
 - IPFS Desktop
 - IPFS Companion
