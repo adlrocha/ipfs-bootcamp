@@ -1,8 +1,8 @@
 # DAY 1: The IPFS Stack (I)
 Learning how IPFS works under the hood.
 
-### 🤷‍♂️ Introduction: Why IPFS? (10 min)
-  - [Use case for the bootcamp](../day5)
+### 🤷‍♂️ Introduction: Why IPFS?
+- [Welcome to Web3][https://docs.google.com/presentation/d/19rOP7RlMsGuHlT9ozdwpzT9Vo3DNKj4GLHbKRc1_ae8/edit?usp=sharing]
 
 ### 🖇️ Content addressing in IPFS(~ 100 min)
 - [Content Addressing in IPFS](https://docs.google.com/presentation/d/1Ym2jGkQAnK4NftPYJPsffQKsxZoh5hf9o-PPsAxoAnw): How content is represented in the IPFS network.
@@ -15,18 +15,22 @@ Learning how IPFS works under the hood.
   - Modules from the Web3 stack used by IPFS.
 - [Installing IPFS Companion](https://docs.ipfs.io/install/ipfs-companion/)
 - [Installing CLI](./ipfs/ipfs_install.md)
+  - [Building from source](https://github.com/ipfs/kubo#download-and-compile-ipfs)
 
 #### Adding files to IPFS
 - Adding a simple file over IPFS using IPFS Desktop.
   - `ipfs add` / `ipfs cat`
 - Finding it in your browser with IPFS companion (or Brave)
-  - https://ipfs.io/ipfs/Qmf17K1hK6DnaLXK1BoumJLzEQPXtcuHu6FXZTtQ9H7Vav
+  - https://ipfs.io/ipfs/QmQPeNsJPyVWPFDVHb77w8G42Fvo15z4bG2X8D2GhfbSXc/readme
+  - Try with from your browser with IPFS companion or Brave.
   - Try with your own file through CID.
 - [Creating a simple website that uploads a file to IPFS](./ipfs/ipfs-example)
   - Connect to local node
   - Connect to Infura Gateway
   - Upload the website to IPFS: `ipfs add -R build`
 - Let's try to connect our nodes!!🙌
+  - `ipfs id`: Get your addresses.
+  - `ipfs swarm connect /ip4/127.0.0.1/tcp/36181/p2p/QmbRESPk9EyYPdrmmmcMKsyxnioQFbuAUBTqbpxJ2DKMqM`
 
 #### Pinning files
 - Updating with Pinata and pinning a file
@@ -41,7 +45,7 @@ Learning how IPFS works under the hood.
   - Differences between pinning and adding.
   - Configuring our go-ipfs node to use Pinata as pinning service.
     - Ensure there is another node pinning content.
-      - `ipfs pin remote service add pinata https://api.pinata.cloud/psa YOUR_JWT`    
+      - `ipfs pin remote service add pinata https://api.pinata.cloud/psa YOUR_JWT`
       - `ipfs pin remote add --service=pinata --name=war-and-peace.txt bafybeib32tuqzs2wrc52rdt56cz73sqe3qu2deqdudssspnu4gbezmhig4`
       - `ipfs pin remote ls --service=pinata`
       - `ipfs pin remote ls --service=pinata --status=queued,pinning,failed`
@@ -58,7 +62,7 @@ Learning how IPFS works under the hood.
   - `ipfs swarm`: Networking cmds
   - `ipfs pubsub`: Use gossipsub to broadcast messages and create pubsub topic.
   - Download a dataset from [IPFS Awesome](http://awesome.ipfs.io.ipns.localhost:8080/datasets/)
-    - `ipfs get <cid>
+    - `ipfs get <cid>`
     - `ipfs cat <cid>`
     - `ipfs ls <cid>` for directories: `ipfs ls /ipfs/QmXHMEB9C3Q4jAAqsrDYXj1kbqmhrDqFmkWaaMH73z6mdE`
   - Pin a file or directory.
@@ -93,7 +97,6 @@ Learning how IPFS works under the hood.
 - [Libp2p examples](https://github.com/libp2p/go-libp2p/tree/master/examples)
 
 ## Slides
-- [Welcome to Web3](https://docs.google.com/presentation/d/1LvyOH1cqRNefbdLfVwg7raHMqbas0zE6UuQLT2MOTPI/)
 - [Content Addressing in IPFS](https://docs.google.com/presentation/d/1Ym2jGkQAnK4NftPYJPsffQKsxZoh5hf9o-PPsAxoAnw/): How content is represented in the IPFS network.
 - [Libp2p](https://docs.google.com/presentation/d/190-e2PvZ9OPu3oLrT1j2Qf5RmWygV-7txpYrrcnip04/)
 - [IPLD](https://docs.google.com/presentation/d/1-ZscY84fI_gncQn6H3IOLnL8Icr06a9aun8dgvKUGtM/)

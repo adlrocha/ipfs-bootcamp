@@ -1,4 +1,4 @@
-#IPFS Cluster
+# IPFS Cluster
 ### Instal ipfs-cluster services
 - Install from source (the easiest and faster one)
 ```

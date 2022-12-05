@@ -11,6 +11,7 @@ Learning how IPFS works under the hood
 - Upload static website as a directory (use relative paths for assets).
 - [Publishing mutable content in the IPFS network](./ipns)
 - [DNSLink: Using IPNS and DNS for mutable content](https://dnslink.io).
+  - [DNSLink docs](https://docs.ipfs.tech/concepts/dnslink/#publish-content-path)
   - See how `docs.ipfs.io` is actually in IPFS (like many other sites): `dig +noall +answer TXT \_dnslink.docs.ipfs.io`
 - [Mutable Filesystems and UnixFS](https://docs.ipfs.io/concepts/file-systems/#mutable-file-system-mfs)
         - Try `ipfs files ls`

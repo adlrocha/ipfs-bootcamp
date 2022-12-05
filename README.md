@@ -6,7 +6,7 @@ A good way to get started with the Web3 stack.
 - [Day 2: The IPFS Stack (II)](./day2)
 - [Day 3: Filecoin](./day3)
 - [Day 4: Tools and ecosystem applications](./day4)
-- [Day 5: Building a use case](./day5)
+- [Day 5: Building a use case and what's next!](./day5)
 
 ## Logistics
 - First things first, clone the repo:
@@ -29,4 +29,4 @@ file an issue and/or a PR.
 - And give AS MUCH FEEDBACK AS YOU CAN. These technologies are still young
 and they would appreciate your love :)
 - You have questions/ideas/suggestions? Open a [discussion](https://github.com/adlrocha/ipfs-bootcamp/discussions) topic.
-- 1h sessions with 15 min break or 2h sessions with 30 min break?
+- 1h sessions with 10 min break or 2h sessions with 30 min break?
