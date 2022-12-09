@@ -27,6 +27,7 @@ The simplest way to store data with some linked metadata.
 - [NFT Storage docs](https://nft.storage/#docs)
   - [Client lib](https://nftstorage.github.io/nft.storage/client/)
   - [API docs](https://nft.storage/api-docs/)
+- [NFT.up](https://nft.storage/docs/how-to/nftup/)
 - [Hands on NFT.Storage](./nft_storage): Choose one!
   - [NFT Storage examples](https://github.com/nftstorage/nft.storage/tree/main/packages/client/examples/node.js): Encoding blobs, CARs, etc.
   - (_exercise_) [NFT School: Build minting service](https://nftschool.dev/tutorial/minting-service/)
