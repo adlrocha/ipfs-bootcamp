@@ -2,7 +2,7 @@
 Learning how IPFS works under the hood.
 
 ### 🤷‍♂️ Introduction: Why IPFS?
-- [Welcome to Web3][https://docs.google.com/presentation/d/19rOP7RlMsGuHlT9ozdwpzT9Vo3DNKj4GLHbKRc1_ae8/edit?usp=sharing]
+- [Welcome to Web3](https://docs.google.com/presentation/d/19rOP7RlMsGuHlT9ozdwpzT9Vo3DNKj4GLHbKRc1_ae8/edit?usp=sharing)
 
 ### 🖇️ Content addressing in IPFS(~ 100 min)
 - [Content Addressing in IPFS](https://docs.google.com/presentation/d/1Ym2jGkQAnK4NftPYJPsffQKsxZoh5hf9o-PPsAxoAnw): How content is represented in the IPFS network.
